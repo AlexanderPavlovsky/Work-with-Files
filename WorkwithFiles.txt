@@ -6,14 +6,21 @@ using namespace std;
 
 int main()
 {
-	char s1[100];
-	FILE *file;
-	fopen_s(&file, "D:\\text.txt", "r");
-	fgets(s1, 100, file);
-	fclose(file);
+	int size = 0;
+	fstream file("D:\\text.txt");
+	file.seekg(0, std::ios::end);
+	size = file.tellg();
+	file.close();
+	size++;
+	char *s1 = new char[size];
 	FILE *file1;
-	fopen_s(&file1, "D:\\text1.txt", "w");
-	fputs(s1, file1);
+	fopen_s(&file1, "D:\\text.txt", "r");
+	fgets(s1, 100, file1);
 	fclose(file1);
+	FILE *file2;
+	fopen_s(&file2, "D:\\text1.txt", "w");
+	fputs(s1, file2);
+	fclose(file2);
+	delete s1;
     return 0;
 }
