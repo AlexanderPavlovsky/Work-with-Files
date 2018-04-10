@@ -15,7 +15,7 @@ int main()
 	char *s1 = new char[size];
 	FILE *file1;
 	fopen_s(&file1, "D:\\text.txt", "r");
-	fgets(s1, 100, file1);
+	fgets(s1, size, file1);
 	fclose(file1);
 	FILE *file2;
 	fopen_s(&file2, "D:\\text1.txt", "w");
